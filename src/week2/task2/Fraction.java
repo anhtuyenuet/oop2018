@@ -25,20 +25,16 @@ public class Fraction {
         this.denominator = den;
     }
     
-    //Hàm tính UCLN
-    private int gcd(int a, int b) {
-        while (a != b) {
-            if (a > b) a -= b;
-            else b -= a;
-        }
-        return a;
-    }
-    
     //Hàm rút gọn phân số
     private void minimize() {
         int k = Task1.gcd(this.denominator, this.numerator);
         this.setDenominator(this.denominator / k);
         this.setNumerator(this.numerator / k);
+    }
+    
+    //Hàm so sánh 2 phân số
+    public boolean equals(Fraction other) {
+        return this.denominator / other.denominator == this.numerator / other.numerator;
     }
     
     public Fraction(int numerator, int denominator) {
