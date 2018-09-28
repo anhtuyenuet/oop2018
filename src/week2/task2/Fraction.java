@@ -34,7 +34,11 @@ public class Fraction {
     
     //Hàm so sánh 2 phân số
     public boolean equals(Fraction other) {
-        return this.denominator / other.denominator == this.numerator / other.numerator;
+        if((this.denominator/other.denominator == this.numerator/other.numerator) || (this.numerator == 0 && other.numerator ==0)) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
     public Fraction(int numerator, int denominator) {
