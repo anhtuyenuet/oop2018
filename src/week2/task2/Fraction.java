@@ -1,4 +1,5 @@
 package week2.task2;
+import week2.task1.Task1;
 
 public class Fraction {
 
@@ -35,7 +36,7 @@ public class Fraction {
     
     //Hàm rút gọn phân số
     private void minimize() {
-        int k = gcd(this.denominator, this.numerator);
+        int k = Task1.gcd(this.denominator, this.numerator);
         this.setDenominator(this.denominator / k);
         this.setNumerator(this.numerator / k);
     }
