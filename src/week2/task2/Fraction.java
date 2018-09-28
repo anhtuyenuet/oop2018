@@ -25,14 +25,21 @@ public class Fraction {
         this.denominator = den;
     }
     
-    //Hàm rút gọn phân số
-    private void minimize() {
-        int k = Task1.gcd(this.denominator, this.numerator);
-        this.setDenominator(this.denominator / k);
-        this.setNumerator(this.numerator / k);
+    //Hàm tính UCLN
+    private int gcd(int a, int b) {
+        while (a != b) {
+            if (a > b) a -= b;
+            else b -= a;
+        }
+        return a;
+    }
+
+    public Fraction(int numerator, int denominator) {
+        // TODO: khởi tạo giá trị cho các thuộc tính numberator (tử số), denominator (mẫu số)
+        this.numerator = numerator;
+        this.denominator = denominator;
     }
     
-    //Hàm so sánh 2 phân số
     public boolean equals(Fraction other) {
         if((this.denominator/other.denominator == this.numerator/other.numerator) || (this.numerator == 0 && other.numerator ==0)) {
             return true;
@@ -40,19 +47,13 @@ public class Fraction {
             return false;
         }
     }
-    
-    public Fraction(int numerator, int denominator) {
-        // TODO: khởi tạo giá trị cho các thuộc tính numberator (tử số), denominator (mẫu số)
-        this.numerator = numerator;
-        this.denominator = denominator;
-    }
 
     public Fraction add(Fraction other) {
         // TODO: Phương thức cộng hai phân số (this và other), trả về đối tượng Fraction mới
         Fraction result = new Fraction(1,1);
         result.setDenominator(this.denominator * other.denominator);
         result.setNumerator(this.numerator * other.denominator + other.numerator * this.denominator);
-        result.minimize();
+        //result.minimize();
         return result;
     }
 
@@ -61,7 +62,7 @@ public class Fraction {
         Fraction result = new Fraction(1,1);
         result.setDenominator(this.denominator * other.denominator);
         result.setNumerator(this.numerator * other.denominator - other.numerator * this.denominator);
-        result.minimize();
+        //result.minimize();
         return result;
     }
 
@@ -70,7 +71,7 @@ public class Fraction {
         Fraction result = new Fraction(1,1);
         result.setDenominator(this.denominator * other.denominator);
         result.setNumerator(this.numerator *  other.numerator);
-        result.minimize();
+        //result.minimize();
         return result;
     }
 
@@ -79,7 +80,14 @@ public class Fraction {
         Fraction result = new Fraction(1,1);
         result.setDenominator(this.denominator * other.numerator);
         result.setNumerator(this.numerator *  other.denominator);
-        result.minimize();
+        //result.minimize();
         return result;
+    }
+    
+    public static void main(String[] args) {
+        Fraction f1 = new Fraction(2,3);
+        Fraction f2 = new Fraction(4,5);
+        Fraction result = f1.subtract(f2);
+        System.out.println(result.getNumerator() + "/" + result.getDenominator());
     }
 }
