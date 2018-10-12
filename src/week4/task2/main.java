@@ -7,3 +7,12 @@
  * @version 0.1
  */
 package week4.task2;
+
+class main {
+    public static void main(String[] agrs) {
+        Shape shape1 = new Shape();
+        System.out.println(shape1);
+        Square sq1 = new Square(5);
+        System.out.println(sq1);
+    }
+}
