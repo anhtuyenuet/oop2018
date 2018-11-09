@@ -16,14 +16,4 @@ public class FractionTest {
         fraction2 = new Fraction(4, 5);
     }
 
-    @Test
-    public void testEquals() {
-        Fraction fraction1 = new Fraction(2, 3);
-        Fraction fraction2 = new Fraction(2, 3);
-        Fraction fraction3 = new Fraction(4, 6);
-
-        assertEquals(fraction1, fraction2);
-        assertEquals(fraction1, fraction3);
-    }
-
 }
